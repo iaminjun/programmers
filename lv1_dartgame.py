@@ -10,7 +10,7 @@ def solution(dartResult):
                 if dartResult[a+1] == '0':
                     dr = '10'
             elif dartResult[a] == '0':
-                if a -1 >=0 and dartResult[a-1] == '1':
+                if a -1 > =0 and dartResult[a-1] == '1':
                     continue
             num += 1
             score.append(int(dr))
