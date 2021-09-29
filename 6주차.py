@@ -3,7 +3,7 @@ def solution(weights, head2head):
     win_rate = []
     win_heavy = []
     table ={}
-
+    
     len_match = len(head2head[0]) - 1
     len_player = len(weights)
     player = [i for i in range(1,len_player+1)]
@@ -20,14 +20,13 @@ def solution(weights, head2head):
             if head2head[i][j] == 'W' and weights[j] > weights[i]:
                 win += 1
         win_heavy.append(win)
-
-
-    for a,b,c,d in zip(win_rate, win_heavy, weights, player):
-        table[d] = [a,b,c,d]
-
-    for key, value in sorted(table.items(), key= lambda x : (-x[1][0],-x[1][1],-x[1][2],x[1][3])):
-        answer.append(key)
-
+        
+    table = list(zip(win_rate, win_heavy, weights, player))
+    table.sort(key= lambda x : (-x[0],-x[1],-x[2],x[3]))
+    
+    for a, b, c, d in table:
+        answer.append(d)
+    
 
 
     return answer
